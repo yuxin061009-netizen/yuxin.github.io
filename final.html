@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>響應式網頁設計佈局練習</title>   
+  <link rel="stylesheet" href="final.css">
+  <script src="./final.js" defer></script>
+</head>
+
+<body>
+   <nav class="navbar">
+       <div class="logo" id="main-logo">14135010 張鈺欣 </div>
+       <ul class="nav-link">
+           <li><a href="#">台積電</a></li>
+           <li><a href="#">GOOGLE</a></li>
+           <li><a href="#">YAHOO</a></li>
+           <li><a href="#">WINDOWS</a></li>
+           <li><a href="#" class="v">Contact us</a></li>
+       </ul>
+   </nav>
+
+   <header class="hero">
+      <div class="hero-content">
+          <h1 id="hero-title">我的未來，由<span class="highlight">我</span>創造</h1>
+          <p>這是我在東吳大學基礎網頁設計課的第一個自製網站，我將學習使用響應式網頁設計的功能</p>
+
+          <div class="chat-box">
+            <input type="text" id="user-input" placeholder="試試輸入指令：新增 準備期末考">
+            <button id="send-btn" class="btn-primary">發送指令</button>
+          </div>
+          <p id="ai-response">AI助理:等待指令中...</p>
+
+          <div class="hero-buttons">
+            <button class="btn-primary" onclick="changeColor()">變換顏色</button>
+            <button class="btn-secondary">查看原始碼</button>
+          </div>
+      </div>
+
+      <div class="hero-image">
+         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800">
+      </div>
+   </header>
+
+   <section class="todo-section">
+       <h2>📝 我的待辦事項 (To-Do List)</h2>
+       <p class="todo-hint">提示：你可以直接利用上方的 AI 助理輸入「<span class="keyword">新增 項目名稱</span>」來建立事項喔！</p>
+       
+       <ul id="todo-list">
+           <li>
+               <span>範例事項：微調網頁介面</span>
+               <button class="delete-btn" onclick="this.parentElement.remove()">❌</button>
+           </li>
+       </ul>
+   </section>
+
+   <script>
+   (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="NfD5Fnrn_-3rb15eQkz1O";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+   </script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+/* ==========================================
+   1. 全域高質感主題設定 (CSS 變數)
+   ========================================== */
+body {
+    --bg-color: #fdfbf7;
+    --text-color: #2d2119;
+    --nav-bg: rgba(253, 251, 247, 0.75);
+    --logo-color: #9c4126;
+    --primary-color: #b5492f;
+    --primary-hover: #963821;
+    --text-muted: #735a4c;
+    --input-bg: #f5eedf;
+    --shadow-color: rgba(45, 33, 25, 0.08);
+    --card-bg: #ffffff;
+    /* 新增：待辦卡片背景 */
+}
+
+body.theme-light {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+    --nav-bg: rgba(248, 250, 252, 0.75);
+    --logo-color: #0284c7;
+    --primary-color: #0284c7;
+    --primary-hover: #0369a1;
+    --text-muted: #475569;
+    --input-bg: #e2e8f0;
+    --shadow-color: rgba(15, 23, 42, 0.06);
+    --card-bg: #ffffff;
+}
+
+body.theme-matrix {
+    --bg-color: #050505;
+    --text-color: #39ff14;
+    --nav-bg: rgba(5, 5, 5, 0.8);
+    --logo-color: #39ff14;
+    --primary-color: #00ff66;
+    --primary-hover: #00cc55;
+    --text-muted: #00aa44;
+    --input-bg: #151515;
+    --shadow-color: rgba(0, 255, 0, 0.1);
+    --card-bg: #111111;
+}
+
+/* ==========================================
+   2. 基礎樣式
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* 導覽列 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 10%;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--logo-color);
+}
+
+.nav-link {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link a:hover {
+    color: var(--primary-color);
+}
+
+.nav-link a.v {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Hero 主要區塊 */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10% 40px 10%;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 24px;
+    line-height: 1.25;
+}
+
+.highlight {
+    color: var(--primary-color);
+    transition: 0.3s;
+}
+
+.highlight.aurora-text {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b, #8a2387, #e94057, #f27121);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    color: var(--text-muted);
+}
+
+/* 指令輸入框區塊 */
+.chat-box {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid rgba(128, 128, 128, 0.15);
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: 0.3s ease;
+    outline: none;
+}
+
+#user-input:focus {
+    background-color: var(--bg-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px var(--shadow-color);
+}
+
+#ai-response {
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    min-height: 1.6rem;
+    margin-bottom: 25px;
+}
+
+/* 按鈕樣式 */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+/* ==========================================
+   🎯 3. 新增：待辦事項清單樣式美化
+   ========================================== */
+.todo-section {
+    max-width: 800px;
+    margin: 40px auto 80px auto;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    transition: background-color 0.5s;
+}
+
+.todo-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.todo-hint {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.todo-hint .keyword {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+#todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    font-weight: 500;
+    border-left: 5px solid var(--primary-color);
+    /* 左側特色裝飾條 */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   4. 響應式媒體查詢 (RWD)
+   ========================================== */
+@media (max-width: 800px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-link {
+        display: none;
+        /* 遵循原本的隱藏設定 */
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 6%;
+        gap: 35px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .chat-box {
+        margin: 20px auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .todo-section {
+        margin: 20px 6% 60px 6%;
+        padding: 20px;
+    }
+}
