@@ -1,11 +1,230 @@
+body {
+    --bg-color: #fdfbf7;
+    --text-color: #2d2119;
+    --nav-bg: rgba(253, 251, 247, 0.75);
+    --logo-color: #9c4126;
+    --primary-color: #b5492f;
+    --primary-hover: #963821;
+    --text-muted: #735a4c;
+    --input-bg: #f5eedf;
+    --shadow-color: rgba(45, 33, 25, 0.08);
+    --card-bg: #ffffff;
+}
+
+body.theme-light {
+    --bg-color: #fdfbf7;
+    --text-color: #2d2119;
+    --nav-bg: rgba(253, 251, 247, 0.75);
+    --logo-color: #9c4126;
+    --primary-color: #b5492f;
+    --primary-hover: #963821;
+    --text-muted: #735a4c;
+    --input-bg: #f5eedf;
+    --shadow-color: rgba(45, 33, 25, 0.08);
+    --card-bg: #ffffff;
+}
+
+body.theme-matrix {
+    --bg-color: #050505;
+    --text-color: #39ff14;
+    --nav-bg: rgba(5, 5, 5, 0.85);
+    --logo-color: #39ff14;
+    --primary-color: #00ff66;
+    --primary-hover: #00cc55;
+    --text-muted: #00aa44;
+    --input-bg: #151515;
+    --shadow-color: rgba(0, 255, 0, 0.2);
+    --card-bg: #111111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 10%;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--logo-color);
+}
+
+.nav-link {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link a:hover {
+    color: var(--primary-color);
+}
+
+.nav-link a.v {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10% 60px 10%;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 24px;
+    line-height: 1.25;
+}
+
+.highlight {
+    background: linear-gradient(135deg, #b5492f, #e67e22, #9c4126, #b5492f);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    font-weight: bold;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    color: var(--text-muted);
+}
+
+.chat-box {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid rgba(128, 128, 128, 0.15);
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: 0.3s ease;
+    outline: none;
+}
+
+#user-input:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px var(--shadow-color);
+}
+
+#ai-response {
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    min-height: 1.6rem;
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+}
 
 .todo-section {
     max-width: 800px;
     margin: 40px auto 80px auto;
     padding: 30px;
-    background-color: var(--card-bg, #ffffff);
+    background-color: var(--card-bg);
     border-radius: 16px;
-    box-shadow: 0 10px 30px var(--shadow-color, rgba(0, 0, 0, 0.05));
+    box-shadow: 0 10px 30px var(--shadow-color);
     border: 1px solid rgba(128, 128, 128, 0.1);
     transition: background-color 0.5s;
 }
@@ -18,12 +237,11 @@
 
 .todo-hint {
     font-size: 0.95rem;
-    color: var(--text-muted, #735a4c);
+    color: var(--text-muted);
     margin-bottom: 25px;
     text-align: center;
     line-height: 1.6;
 }
-
 
 .todo-manual-input {
     display: flex;
@@ -40,8 +258,8 @@
     border: 1px solid rgba(128, 128, 128, 0.3);
     border-radius: 6px;
     font-size: 1rem;
-    background-color: var(--input-bg, #f5eedf);
-    color: var(--text-color, black);
+    background-color: #ffffff;
+    color: var(--text-color);
 }
 
 .todo-manual-input input[type="datetime-local"] {
@@ -51,24 +269,22 @@
     border: 1px solid rgba(128, 128, 128, 0.3);
     border-radius: 6px;
     font-size: 1rem;
-    background-color: var(--input-bg, #f5eedf);
-    color: var(--text-color, black);
-    font-family: inherit;
+    background-color: #ffffff;
+    color: var(--text-color);
 }
 
 #manual-add-btn {
     padding: 10px 20px;
-    background-color: var(--primary-color, #b5492f);
+    background-color: var(--primary-color);
     color: #ffffff;
     border: none;
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 #manual-add-btn:hover {
-    background-color: var(--primary-hover, #963821);
+    background-color: var(--primary-hover);
 }
 
 #todo-list {
@@ -83,11 +299,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 14px 20px;
-    background-color: var(--input-bg, #f5eedf);
+    background-color: var(--input-bg);
     border-radius: 10px;
     font-weight: 500;
-    border-left: 5px solid var(--primary-color, #b5492f); 
+    border-left: 5px solid var(--primary-color);
     animation: fadeIn 0.3s ease-in-out;
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .todo-info {
@@ -98,12 +315,12 @@
 
 .todo-text {
     font-size: 1.05rem;
-    color: var(--text-color, black);
+    color: var(--text-color);
 }
 
 .todo-time-tag {
     font-size: 0.85rem;
-    color: var(--primary-color, #b5492f);
+    color: var(--primary-color);
     font-weight: bold;
 }
 
@@ -113,7 +330,7 @@
     padding: 5px;
     cursor: pointer;
     font-size: 1.1rem;
-    transition: transform 0.2s;
+    transition: 0.2s;
 }
 
 .delete-btn:hover {
@@ -121,16 +338,48 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-body.theme-matrix .todo-manual-input input {
-    background-color: #111111;
-    color: #39ff14;
-    border-color: #39ff14;
-}
-body.theme-matrix #manual-add-btn {
-    background-color: #00ff66;
-    color: #000000;
+@media (max-width: 800px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-link {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+        gap: 35px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .chat-box {
+        margin: 20px auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
 }
