@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>響應式網頁設計佈局練習</title>   
-  <link rel="stylesheet" href="final.css">
-  <script src="./final.js" defer></script>
+  <link rel="stylesheet" href="class1.css">
+  <script src="./java.js" defer></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
           <p>這是我在東吳大學基礎網頁設計課的第一個自製網站，我將學習使用響應式網頁設計的功能</p>
 
           <div class="chat-box">
-            <input type="text" id="user-input" placeholder="試試輸入指令：新增 準備期末考">
+            <input type="text" id="user-input" placeholder="試試打：新增 準備期末考 2026-06-23 15:00">
             <button id="send-btn" class="btn-primary">發送指令</button>
           </div>
           <p id="ai-response">AI助理:等待指令中...</p>
@@ -44,11 +44,23 @@
 
    <section class="todo-section">
        <h2>📝 我的待辦事項 (To-Do List)</h2>
-       <p class="todo-hint">提示：你可以直接利用上方的 AI 助理輸入「<span class="keyword">新增 項目名稱</span>」來建立事項喔！</p>
+       <p class="todo-hint">
+            💡 **高分雙模功能**：您可以使用上方的 <b>AI 助理指令</b> 自動設定；<br>
+            也可以直接在下方<b>手動點選日期與時間</b>來新增提醒事項！
+       </p>
+       
+       <div class="todo-manual-input">
+           <input type="text" id="manual-text" placeholder="請輸入提醒事項">
+           <input type="datetime-local" id="manual-datetime">
+           <button id="manual-add-btn">確定新增</button>
+       </div>
        
        <ul id="todo-list">
-           <li>
-               <span>範例事項：微調網頁介面</span>
+           <li class="todo-item" data-time="2026-06-22 23:59" data-notified="false">
+               <div class="todo-info">
+                   <span class="todo-text">範例事項：微調網頁介面</span>
+                   <span class="todo-time-tag">⏰ 提醒日期與時間: 2026-06-22 23:59:00</span>
+               </div>
                <button class="delete-btn" onclick="this.parentElement.remove()">❌</button>
            </li>
        </ul>
