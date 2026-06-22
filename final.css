@@ -11,17 +11,17 @@ body {
     --card-bg: #ffffff;
 }
 
-body.theme-light {
-    --bg-color: #fdfbf7;
-    --text-color: #2d2119;
-    --nav-bg: rgba(253, 251, 247, 0.75);
-    --logo-color: #9c4126;
-    --primary-color: #b5492f;
-    --primary-hover: #963821;
-    --text-muted: #735a4c;
-    --input-bg: #f5eedf;
-    --shadow-color: rgba(45, 33, 25, 0.08);
-    --card-bg: #ffffff;
+body.theme-dark {
+    --bg-color: #0b0f19;
+    --text-color: #f3f4f6;
+    --nav-bg: rgba(11, 15, 25, 0.8);
+    --logo-color: #60a5fa;
+    --primary-color: #3b82f6;
+    --primary-hover: #1d4ed8;
+    --text-muted: #9ca3af;
+    --input-bg: #1f2937;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --card-bg: #111827;
 }
 
 body.theme-matrix {
@@ -49,6 +49,47 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.5s, color 0.5s;
+}
+
+.highlight {
+    background: linear-gradient(135deg, #b5492f, #e67e22, #9c4126, #b5492f);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+.highlight.color-blue {
+    background: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa, #2563eb);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight.color-green {
+    background: linear-gradient(135deg, #059669, #10b981, #34d399, #059669);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight.color-purple {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6, #a78bfa, #7c3aed);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
 }
 
 .navbar {
@@ -116,22 +157,6 @@ body {
     line-height: 1.25;
 }
 
-.highlight {
-    background: linear-gradient(135deg, #b5492f, #e67e22, #9c4126, #b5492f);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 4s linear infinite;
-    font-weight: bold;
-}
-
-@keyframes shine {
-    to {
-        background-position: 200% center;
-    }
-}
-
 .hero-content p {
     font-size: 1.05rem;
     margin-bottom: 25px;
@@ -159,7 +184,7 @@ body {
 }
 
 #user-input:focus {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-color: var(--primary-color);
     box-shadow: 0 0 12px var(--shadow-color);
 }
@@ -258,7 +283,7 @@ button {
     border: 1px solid rgba(128, 128, 128, 0.3);
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     color: var(--text-color);
 }
 
@@ -269,7 +294,7 @@ button {
     border: 1px solid rgba(128, 128, 128, 0.3);
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     color: var(--text-color);
 }
 
