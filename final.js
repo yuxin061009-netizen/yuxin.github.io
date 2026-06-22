@@ -1,6 +1,6 @@
-console.log("Javascript已連結，準備進行互動");
+console.log("外部 Javascript 已成功連結，功能全開中");
 
-// 姓名彈窗
+// 名字彈窗功能
 let visitorname = prompt("請輸入你的名字:");
 if (visitorname === '' || visitorname === null ){
     visitorname = "訪客";
@@ -17,22 +17,21 @@ if (titleelement) {
     titleelement.innerHTML = `我的未來，由<span class="highlight">${visitorname}</span> 主宰`;
 }
 
-
+// 獲取網頁 DOM 元素
 const sendBtn = document.getElementById("send-btn");
 const userInput = document.getElementById("user-input");
 const aiResponse = document.getElementById("ai-response");
 const todoList = document.getElementById("todo-list");
 
-
 const manualText = document.getElementById("manual-text");
 const manualDatetime = document.getElementById("manual-datetime");
 const manualAddBtn = document.getElementById("manual-add-btn");
 
-
+// 封裝核心功能：動態新增項目到清單
 function createTodoItem(text, formattedTime) {
     const newTodo = document.createElement("li");
     newTodo.className = "todo-item";
-    newTodo.setAttribute("data-time", formattedTime); // 用於背景比對 (YYYY-MM-DD HH:mm)
+    newTodo.setAttribute("data-time", formattedTime); 
     newTodo.setAttribute("data-notified", "false");
     
     newTodo.innerHTML = `
@@ -45,31 +44,31 @@ function createTodoItem(text, formattedTime) {
     todoList.insertBefore(newTodo, todoList.firstChild);
 }
 
+// ==========================================
+// A. 手動輸入欄位事件監聽
+// ==========================================
 if (manualAddBtn && manualText && manualDatetime) {
     manualAddBtn.addEventListener("click", function() {
         const text = manualText.value.trim();
-        const datetimeVal = manualDatetime.value; // 格式通常為 YYYY-MM-DDTHH:mm
+        const datetimeVal = manualDatetime.value; 
 
         if (text === "" || datetimeVal === "") {
             alert("請輸入完整的提醒事項與日期時間！");
             return;
         }
 
-        // 把 HTML5 預設的 'T' 替換成空格，以符合老師畫面的 YYYY-MM-DD HH:mm 格式
+        // 轉換 HTML5 的日期時間格式
         const formattedTime = datetimeVal.replace("T", " ");
-
-        // 呼叫建立功能
         createTodoItem(text, formattedTime);
 
-        // 清空手動輸入欄位
         manualText.value = "";
         manualDatetime.value = "";
-        aiResponse.innerText = `AI助理: 偵測到您手動新增了「${text}」，已幫您記錄！`;
+        aiResponse.innerText = `AI助理: 偵測到您手動新增了「${text}」，已完美記錄！`;
     });
 }
 
 // ==========================================
-// 2. 虛擬 AI 指令輸入框連動
+// B. AI 指令框事件監聽 
 // ==========================================
 if (sendBtn && userInput && aiResponse && todoList) {
     sendBtn.addEventListener("click", function() {
@@ -118,9 +117,8 @@ if (sendBtn && userInput && aiResponse && todoList) {
                     timeStr = `${yyyy}-${mm}-${dd} ${hh}:${min}`;
                 }
 
-                // 呼叫建立功能
                 createTodoItem(todoText, timeStr);
-                aiResponse.innerText = `AI助理: 已透過指令排定「${todoText}」，將於 ${timeStr} 彈出通知！`;
+                aiResponse.innerText = `AI助理: 已透過指令排定「${todoText}」，將於 ${timeStr} 準時通知！`;
             } 
             // 主題變換功能
             else if (userMessage.includes("淺色") || userMessage.includes("白天")) {
@@ -133,10 +131,10 @@ if (sendBtn && userInput && aiResponse && todoList) {
             } 
             else if (userMessage.includes("深色") || userMessage.includes("晚上")) {
                 document.body.className = "";
-                aiResponse.innerText = "AI助理: 已切換至預設主題！";
+                aiResponse.innerText = "AI助理: 已切換至預設科技主題！";
             } 
             else {
-                aiResponse.innerText = "AI助理: 聽不懂這個指令。可以試試「新增 吃晚餐 18:30」或手動在下方填寫喔！";
+                aiResponse.innerText = "AI助理: 聽不懂這個指令。可以試試手動在下方輸入，或打「新增 繳交作業 23:50」試試！";
             }
         }, 300);
 
@@ -145,7 +143,7 @@ if (sendBtn && userInput && aiResponse && todoList) {
 }
 
 // ==========================================
-// 3. 背景自動檢查計時器 (每秒比對時間)
+// C. 背景計時檢查器 (每 1 秒自動檢查是否到期)
 // ==========================================
 setInterval(function() {
     let now = new Date();
@@ -166,11 +164,13 @@ setInterval(function() {
             item.setAttribute("data-notified", "true"); 
             let taskName = item.querySelector(".todo-text").innerText;
             
+            // 震撼跳出彈窗
             window.alert(`🔔 時間到囉！\n提醒您該做這件事了：【${taskName}】`);
         }
     });
 }, 1000);
 
+// 按鈕顏色變換
 function changeColor(){
     const highlight = document.querySelector(".highlight");
     if (highlight) {
